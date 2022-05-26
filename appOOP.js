@@ -40,7 +40,6 @@ class ToDo{
     }
     deleteTodo(event){
         const item = event.target;
-        console.log(item.classList[0]);
     
         if (item.classList[0] === "trash-btn"){
             const todo = item.parentElement;
@@ -81,8 +80,6 @@ class ToDo{
     }
     filterTodo(event){
         const todos = this.todoList.childNodes;
-        console.log(event);
-    
         todos.forEach(function(todo){
             switch(event.target.value){
                 case "all":
@@ -145,7 +142,7 @@ const myTask = new ToDo();
 //document.addEventListener("DOMContentLoaded", getTodos);
 
 
-console.log(myTask.todoButton);
+
 
 myTask.todoButton.addEventListener("click", (event)=>{
     myTask.addTodo(event);
