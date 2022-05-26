@@ -22,19 +22,19 @@ function inputCheck(){
     
 }
 
-function selector(event){
-    let item = event.target;
-    console.log(item.value)
-    console.log(todoList.style.display);
+// function selector(event){
+//     let item = event.target;
+//     console.log("item: ",item.value)
+//     console.log("display: ",todoList.style.display);
 
-    if(item.value === "completed"){
-        if(todoList.style.display === "none"){
-            todoList.style.display = "block";
-        }else{
-            todoList.style.display = "none";
-        }
-    }
-}
+//     if(item.value === "completed"){
+//         if(todoList.style.display === "none"){
+//             todoList.style.display = "block";
+//         }else{
+//             todoList.style.display = "none";
+//         }
+//     }
+// }
 function addTodo(event){
     event.preventDefault();
 
@@ -89,7 +89,7 @@ function deleteTodo(e){
 
 function filterTodo(e){
     const todos = todoList.childNodes;
-    console.log(todos);
+    console.log("todo", todos);
 
     todos.forEach(function(todo){
         switch(e.target.value){
