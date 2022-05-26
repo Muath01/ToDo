@@ -38,6 +38,37 @@ class ToDo{
         this.todoList.appendChild(todoDiv)
     
     }
+    deleteTodo(event){
+        const item = event.target;
+        console.log(item.classList[0]);
+    
+        if (item.classList[0] === "trash-btn"){
+            const todo = item.parentElement;
+            todo.classList.add("fall");
+            removeLocalTodos(todo);
+            todo.addEventListener("transitionend", function(){
+                todo.remove();
+            })
+           
+        }
+        if (item.classList[0] === "complete-btn"){
+            const todo = item.parentElement;
+            todo.classList.toggle("completed"); 
+        }
+        
+    }
+    removeLocalTodos(todo){
+        let todos;
+        if(localStorage.getItem("todos") == null){
+            todos = [];
+        }else{
+            todos = JSON.parse(localStorage.getItem("todos"));
+        }
+        const todoIndex = todo.children[0].innerText;
+        todos.splice(todos.indexOf(todoIndex), 1);
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }
+
 }
 
 const myTask = new ToDo();
@@ -53,7 +84,11 @@ myTask.todoButton.addEventListener("click", (event)=>{
     myTask.addTodo(event);
 })
 
-//todoButton.addEventListener('click', addTodo);
+myTask.todoList.addEventListener("click", (event)=>{
+    myTask.deleteTodo(event);
+})
+
+
 // todoList.addEventListener("click", deleteTodo);
 // select.addEventListener("click", filterTodo);
 
