@@ -21,7 +21,7 @@ class ToDo{
         newTodo.classList.add('todo-item');
         todoDiv.appendChild(newTodo);
         //save todos
-        saveLocalTodos(this.todoInput.value);
+        this.saveLocalTodos(this.todoInput.value);
         this.todoInput.value = "";
         //Completed button
         const completedButton=document.createElement("button");
@@ -45,7 +45,7 @@ class ToDo{
         if (item.classList[0] === "trash-btn"){
             const todo = item.parentElement;
             todo.classList.add("fall");
-            removeLocalTodos(todo);
+            this.removeLocalTodos(todo);
             todo.addEventListener("transitionend", function(){
                 todo.remove();
             })
@@ -112,7 +112,7 @@ class ToDo{
         }else{
             todos = JSON.parse(localStorage.getItem("todos"));
         }
-        todos.forEach(function(todo){
+        todos.forEach((todo)=>{
             //todo div
         const todoDiv = document.createElement('div');
         todoDiv.classList.add("todo");
@@ -131,10 +131,9 @@ class ToDo{
         trashButton.innerHTML = `<i class="fas fa-trash"></i>`;
         trashButton.classList.add("trash-btn");
         todoDiv.appendChild(trashButton);
-        //append to ul list
-        //todoList.appendChild(todoDiv);
-        this.todoList.appendChild(todoDiv)
+        this.todoList.append(todoDiv);
        })
+    //    this.todoList.append(todoDiv)
     }
 
 }
