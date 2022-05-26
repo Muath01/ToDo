@@ -87,7 +87,7 @@ form button:hover{
 
 .todo-item{
     padding: 0rem 0.5rem;
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(255, 255, 255);
 }
 
 .fa-trash, .fa-check{
