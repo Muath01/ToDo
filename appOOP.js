@@ -50,7 +50,6 @@ const myTask = new ToDo();
 console.log(myTask.todoButton);
 
 myTask.todoButton.addEventListener("click", (event)=>{
-    console.log(event);
     myTask.addTodo(event);
 })
 
